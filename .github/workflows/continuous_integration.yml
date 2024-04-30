@@ -15,12 +15,15 @@ jobs:
       RAILS_ENV: test
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+      
     - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.2.2
-          bundler-cache: true
-          cache-version: 1
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.2.2
+        bundler-cache: true
+        cache-version: 1
+  
     - name: Test
       run: bin/rails test:system
